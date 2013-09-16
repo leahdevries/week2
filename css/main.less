@@ -1,0 +1,112 @@
+/*variables*/
+@blue: #2980b9;
+@basefont: 18px; 
+
+ /*mix in*/
+.roundedbutton{
+	border-radius: 10px;
+	background: @blue;
+	color: #fff;
+}
+
+/*parametric mix in*/
+.square(@size){
+	width:@size;
+	height:@size;
+}
+
+.fontstyle(@fontcolor){
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	font-size: @basefont;
+	color:@fontcolor;
+	font-weight: 300;
+	line-height: 42px;
+}
+
+h1{
+	font-size: @basefont *3;
+}
+
+h2 {
+	font-size: @basefont *1.5;
+}
+
+/*p{
+	font-size: @basefont -8;
+}*/
+
+
+
+body {
+	color:white;
+	background-color: #333;
+	font-size: @basefont;
+	.fontstyle(#ecf0f1);
+}
+
+header {
+	background-color: lighten(#000, 80%);
+	width:800px;
+
+	nav {
+		background-color:#222;
+
+		ul {
+			list-style-type: none;
+			margin:0;
+			padding:0;
+
+			li {
+				display:inline;
+				margin-right: 15px;
+
+				&:last-child{
+					margin-right: 0px;
+				}
+
+				&:nth-child(2){
+					color: @blue ;
+				}
+			}
+		}
+	}
+}
+
+a{
+	color:#000;
+
+	&:hover {
+		text-decoration: none;
+	};
+}
+
+section {
+	width:800px;
+	background-color:rgb(88, 105, 17);
+
+	article {
+
+		header {
+			width:400px;
+			background-color:rgb(88, 105, 17);
+
+			h2{
+				font-size: 32px;
+			}
+		}
+
+		p {
+			button[type="submit"]{
+				.roundedbutton;
+				padding:5px 2px;
+			}
+		}
+	}
+}
+
+footer {
+	.mysquare {
+		.square(45px);
+		background-color: @blue;
+	}
+}
